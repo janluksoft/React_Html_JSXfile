@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Fixed the include JSX problem</title>
+    <style> /* Internal CSS */
+      body {background-color: #E4E4E4;  font-family: 'Arial','Segoe UI','Calibri'; font-size:11pt;}
+      h1, h2   {color: #302009; margin: 10px;}
+      h3 {color: #a78e6c; margin: 10px;}
+      p {margin: 6px; }
+    </style>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
+  </head>
+
+  <body>
+    <div style="font-size:16pt; color:#305fb1; padding: 6px;">
+      <b>Fixed the issue of including js files containing JSX syntax</b>
+    </div>
+
+    <p>
+      This application shows how to solve the problem of including js files containing JSX syntax 
+      &#10092;script type="text/babel"&#x276D; without NPM tools, 
+      as an error occurs when including such a .js file.
+    </p>
+    <p>The application does not require a web server and not require Node installation. 
+      It starts from an html file. This html application [file: index.html] includes a React element 
+      defined in the external file [jsx_def_elements.js] with JSX (Babel) syntax.  
+    </p>
+    <p>
+      <br />
+      <a style="font-size: 12pt;"><b>How to disable the issue with include .js files?</b></a><br/>
+      Normally, a regular html file will not attach an external file 
+      [&#10092;script type="text/babel" src="yesnpx3.js"&#x276D;] 
+      (internal in one html file it will allow) because the CORS security option of 
+      the Chrome browser will not allow it and will generate an error: 
+    </p>
+    <p style="font-size:10pt; color:brown;">
+      [Access to XMLHttpRequest at 'file:///D:/…./yesnpx3.js' from origin 'null' has been 
+      blocked by CORS policy: Cross origin requests are only supported for protocol schemes: 
+      http, data, isolated-app , chrome-extension, chrome, https, chrome-untrusted.] 
+    </p>
+    <p>
+      However, to enable the developer to test, you can temporarily disable CORS in Chrome as follows: 
+    </p>
+    <p>
+      Launch Chrome with CORS security disabled, from the prepared icon as: 
+      <code style="color:#305fb1; padding: 6px;">
+      ["C:\Program Files\Google\Chrome\Application\chrome.exe" 
+      --disable-web-security --disable-gpu --user-data-dir=~/chromeTemp] 
+      </code>
+    </p>
+    <p>
+      Then the html file will launch the external file [yesnpx3.js] called as: 
+      [&#10092;script type="text/babel" src="yesnpx3.js"&#x276D;]
+    </p>
+
+    <table cellspacing="4" cellpadding="12">
+      <tr>
+        <td><img src="Disable_CORS2.jpg" alt="" width="560px"/> </td>
+        <td><div id="React_container1" class="cReact_panel" data-cid="2" data-color="#e5e2c2"></div>
+            <br />
+            <div id="React_container2" class="cReact_panel" data-cid="2" data-color="#e5e2c2"></div>
+        </td>
+      </tr>
+    </table>
+
+    <p>
+      When you run Chrome as described above, React elements should appear on 
+      the right side of the figure as below <br/>
+      However, it is better to run a local web server or install the environment via Node npm.
+    </p>
+
+    <img src="Element_ok.jpg" alt=""/>
+
+    <div id="container"></div>
+
+
+    <script type="text/babel" src="jsx_def_elements.js">
+
+    </script>
+
+  </body>
+</html>
