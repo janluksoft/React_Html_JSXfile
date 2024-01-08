@@ -4,7 +4,7 @@ This application shows how to solve the problem of including js files containing
 
 The application from an html file index.html includes a React element jsx_def_elements.js with JSX (Babel) syntax.  
 
-# How to disable the issue with include .js files?
+# How to disable the issue with include js files?
 
 Normally, a regular html file will not attach an external file 
       (internal in one html file it will allow) because the CORS security option of 
